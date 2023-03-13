@@ -1,0 +1,39 @@
+<?php
+  
+    function winRate($jumlahmenang, $jumlahkalah) {
+      $totalMatch = $jumlahmenang + $jumlahkalah;
+      $wr = $jumlahmenang / $totalMatch;
+
+      return $wr;
+    }
+
+    function cekTier($winRate) {
+      if  ($winRate >= 0.7) {
+          return 'Mythic';
+      } elseif ($winRate >= 0.45) {
+          return 'Legends';
+      } elseif ($winRate >= 0.2){
+          return 'Epic';
+      } else {
+          return 'Master';
+      }
+    }
+
+    function predikat ($winRate) {
+      switch (cekTier($winRate)) {
+        case 'Mythic';
+          return 'Sangat Memuaskan';
+          break;
+        case 'Legend';
+          return 'Memuaskan';
+          break;
+        case 'Epic';
+          return 'Mengecewakan';
+          break;
+        default:
+          return 'Sangat Mengecewakan';
+          break;
+      }
+    }
+
+?>
